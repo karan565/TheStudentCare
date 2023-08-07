@@ -1,0 +1,83 @@
+{% extends 'admin.html' %}
+{% block content %}
+
+<div class="container mt-2 mb-4">
+    <div class="row justify-content-md-center">
+        {% comment %} <div class="col-sm-4 border border-primary shadow rounded pt-2"> {% endcomment %}
+            <div class="text-center"><font size=6><b> Choose user</b></font></div>
+            <div class="col-sm-12"><br>
+                <form method="post" id="chooseuser" action ="/sendmessage" >
+                    {% csrf_token %}
+                    
+                    <div class="card-body table-responsive p-0" style="height: 300px;">
+                        <table class="table table-head-fixed text-nowrap">
+                          <thead>
+                            <tr>
+                                <th>Select</th>
+                                <th>userid</th>
+                                <th>First name</th>
+                                <th>Middle name</th>
+                                <th>Last name</th>
+                                <th>DOB</th>
+                                <th>Gender</th>
+                                <th>Emailid</th>
+                                <th>alternate E-mail id</th>
+                                <th>Contact number</th>
+                                <th>Alternate contact number</th>
+                                <th>Permanent address line 1</th>
+                                <th>Permanent address line 2</th>
+                                <th>Permanent landmark/road</th>
+                                <th>Permanent pincode</th>
+                                <th>Permanent city id</th>
+                                <th>Corresponding address line 1</th>
+                                <th>Corresponding address line 2</th>
+                                <th>Corresponding landmark/road</th>
+                                <th>Corresponding pincode</th>
+                                <th>Corresponding city id</th>
+                                <th>Usertype{1=Admin,2=Facuty,3=Student}</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              {% for customuser in list1 %}
+                              <tr>
+                                  <td><input type="checkbox" id="{{customuser.user00id}}" name="userlist" value="{{customuser.userid}}" ></td>
+                                  <td>{{ customuser.userid }}</td>
+                                  <td>{{ customuser.first_name }}</td>
+                                  <td>{{ customuser.middle_name }}</td>
+                                  <td>{{ customuser.last_name }}</td>
+                                  <td>{{ customuser.dob }}</td>
+                                  <td>{{ customuser.get_gender_display }}</td>
+                                  <td>{{ customuser.emailid }}</td>
+                                  <td>{{ customuser.altemailid }}</td>
+                                  <td>{{ customuser.contact }}</td>
+                                  <td>{{ customuser.altcontact }}</td>
+                                  <td>{{ customuser.paddressline1 }}</td>
+                                  <td>{{ customuser.paddressline2 }}</td>
+                                  <td>{{ customuser.plandmark }}</td>
+                                  <td>{{ customuser.ppincode }}</td>
+                                  <td>{{ customuser.pcityid }}</td>
+                                  <td>{{ customuser.caddressline1 }}</td>
+                                  <td>{{ customuser.caddressline2 }}</td>
+                                  <td>{{ customuser.clandmark }}</td>
+                                  <td>{{ customuser.cpincode }}</td>
+                                  <td>{{ customuser.ccityid }}</td>
+                                  <td>{{ customuser.get_usertype_display }}</td>                       
+                              </tr>
+                              {% endfor %}
+                          </tbody>
+                        </table>
+                        </br>
+                        <div class="form-group">
+                            <input type="submit" name="chooseuser" value="Send" class="btn btn-block    btn-danger">
+                        </div>
+                      </div>
+                </form>
+            </div>
+         {% comment %} </div>  {% endcomment %}
+    </div>
+</div>
+
+
+
+
+{% endblock %}

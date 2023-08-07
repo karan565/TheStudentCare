@@ -1,0 +1,38 @@
+{% extends 'admin.html' %}
+{% block content %}
+<div class="container mt-2 mb-4">
+    <div class="row justify-content-md-center">
+        {% comment %} <div class="col-sm-4 border border-primary shadow rounded pt-2"> {% endcomment %}
+            <div class="text-center"><font size=6><b> Message Templates</b></font></div>
+            <div class="col-sm-12"><br>
+                    <div class="card-body table-responsive p-0" style="height: 300px;">
+                        <table class="table table-head-fixed text-nowrap">
+                          <thead>
+                            <tr>
+                                <th>Message Id </th>
+                                <th>Message Subject </th>
+                                <th>Message Sending date </th>
+                                <th>Message Content </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              {% for i in msg_list %}
+                              <tr>
+                                  <td>{{ i.smsid }}</td>
+                                  <td>{{ i.smssubject }}</td>
+                                  <td>{{ i.smsdate }}</td>
+                                  <td>{{ i.smscontent }}</td>                       
+                              </tr>
+                              {% endfor %}
+                          </tbody>
+                        </table>
+                        </br>
+                        <div class="form-group">
+                            <input type="submit" name="submit" value="Delete" class="btn btn-block    btn-danger">
+                        </div>
+                      </div>
+            </div>
+         {% comment %} </div>  {% endcomment %}
+    </div>
+</div>
+{% endblock %}

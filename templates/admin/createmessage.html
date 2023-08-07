@@ -1,0 +1,39 @@
+{% extends 'admin.html' %}
+{% block content %}
+<div class="container mt-2 mb-4">
+    <div class="row justify-content-md-center">
+        {% comment %} <div class="col-sm-4 border border-primary shadow rounded pt-2"> {% endcomment %}
+            <div class="text-center"><font size=6><b> Create Message </b></font></div>
+            <div class="col-sm-12">
+                <form method="post" id="create message" action ="createmessage" onSubmit="return validation();">
+                    {% csrf_token %}
+                    <div id="next-form">
+                        <div class="form-group">
+                            <label class="font-weight-bold">Subject <small class="text-danger"><em>*</em></small></label>
+                            <input type="text" name="smssubject" id="smssubject" class="form-control" placeholder="Enter subject of your message" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold">Sending date <small class="text-danger"><em>*</em></small></label>
+                            <input type="date" name="smsdate" id="smsdate" class="form-control" value="Date of sending message" required>
+                        </div>
+                        
+                            <label class="font-weight-bold">Content <small class="text-danger"><em> *</em></small></label>
+                            <textarea name="smscontent" id="smscontent" class="form-control" placeholder="Enter content of your message" required></textarea> 
+                        </br>
+                        </br>
+                            <div class="form-group">
+                            <input type="submit" name="submit" value="Save" class="btn btn-block btn-danger">
+                        </div>
+                    </div> <!--/.next-form-->
+                </form>
+            </div>
+         {% comment %} </div>  {% endcomment %}
+    </div>
+</div>
+</br>
+<hr>
+</br>
+
+
+
+{% endblock %}

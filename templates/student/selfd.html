@@ -1,0 +1,114 @@
+{% extends 'student.html' %}
+You are in self detail view of student
+{% block content %}
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Self details</h3>
+
+          
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="height: 150px;">
+          <table class="table table-head-fixed text-nowrap">
+            <thead>
+              <tr>
+                <th>userid</th>
+        <th>First name</th>
+        <th>Middle name</th>
+        <th>Last name</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Emailid</th>
+        <th>alternate E-mail id</th>
+        <th>Contact number</th>
+        <th>Alternate contact number</th>
+        <th>Permanent address line 1</th>
+        <th>Permanent address line 2</th>
+        <th>Permanent landmark/road</th>
+        <th>Permanent pincode</th>
+        <th>Permanent city id</th>
+        <th>Corresponding address line 1</th>
+        <th>Corresponding address line 2</th>
+        <th>Corresponding landmark/road</th>
+        <th>Corresponding pincode</th>
+        <th>Corresponding city id</th>
+        <th>Usertype(1=Admin,2=Facuty,3=Student)</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ user.userid }}</td>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.middle_name }}</td>
+                    <td>{{ user.last_name }}</td>
+                    <td>{{ user.dob }}</td>
+                    <td>{{ user.gender }}</td>
+                    <td>{{ user.emailid }}</td>
+                    <td>{{ user.altemailid }}</td>
+                    <td>{{ user.contact }}</td>
+                    <td>{{ user.altcontact }}</td>
+                    <td>{{ user.paddressline1 }}</td>
+                    <td>{{ user.paddressline2 }}</td>
+                    <td>{{ user.plandmark }}</td>
+                    <td>{{ user.ppincode }}</td>
+                    <td>{{ user.pcityid }}</td>
+                    <td>{{ user.caddressline1 }}</td>
+                    <td>{{ user.caddressline2 }}</td>
+                    <td>{{ user.clandmark }}</td>
+                    <td>{{ user.cpincode }}</td>
+                    <td>{{ user.ccityid }}</td>
+                    <td>{{ user.usertype }}</td>                       
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+      <div class="card-body table-responsive p-0" style="height: 150px;">
+        <table class="table table-head-fixed text-nowrap">
+          <thead>
+            <tr>
+              <th>studentid</th>
+              <th>courseid</th>
+              <th>enrollnumber</th>
+              <th>regionalcentre</th>
+              <th>studentstudycentre</th>
+              <th>medium</th>     
+            </tr>
+          </thead>
+          <tbody>
+              {% for customuser in studentlist %}
+              <tr>
+                  <td>{{ customuser.userid }}</td>
+                  <td>{{ customuser.first_name }}</td>
+                  <td>{{ customuser.middle_name }}</td>
+                  <td>{{ customuser.last_name }}</td>
+                  <td>{{ customuser.dob }}</td>
+                  <td>{{ customuser.gender }}</td>
+                  <td>{{ customuser.emailid }}</td>
+                  <td>{{ customuser.altemailid }}</td>
+                  <td>{{ customuser.contact }}</td>
+                  <td>{{ customuser.altcontact }}</td>
+                  <td>{{ customuser.paddressline1 }}</td>
+                  <td>{{ customuser.paddressline2 }}</td>
+                  <td>{{ customuser.plandmark }}</td>
+                  <td>{{ customuser.ppincode }}</td>
+                  <td>{{ customuser.pcityid }}</td>
+                  <td>{{ customuser.caddressline1 }}</td>
+                  <td>{{ customuser.caddressline2 }}</td>
+                  <td>{{ customuser.clandmark }}</td>
+                  <td>{{ customuser.cpincode }}</td>
+                  <td>{{ customuser.ccityid }}</td>
+                  <td>{{ customuser.usertype }}</td>                       
+              </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  {{list2}}
+{% endblock %}

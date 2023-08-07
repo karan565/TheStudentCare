@@ -1,0 +1,39 @@
+{% extends 'student.html' %}
+You are in assignment submission view of student
+{% block content %}
+<div class="container mt-2 mb-4">
+    <div class="row justify-content-md-center">
+        {% comment %} <div class="col-sm-4 border border-primary shadow rounded pt-2"> {% endcomment %}
+            <div class="text-center"><font size=6><b> Assignment Submission</b></font></div>
+            <div class="col-sm-12">
+                <form action="/assignmentsubmission" method="POST" enctype="multipart/form-data" class="form-horizontal"> 
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="font-weight-bold">Enter Assignment id<small class="text-danger"><em> *</em></small></label>
+                        <br>
+                        <input type="text" name="aid" id="aid"  list="list1"/ required>
+                        <datalist id="list1"  >
+                        {% for i in list1 %}
+                        <option value="{{i.assignmentid}}">{{i.subjectname}}</option>
+                        {% endfor %}
+                        </datalist>  
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold">Assignment file input <small class="text-danger"><em>* </em></small></label>
+                        <div class="input-group">
+                            <input type="file" name="rfile" id="rfile" class="form-control" placeholder="" required>
+                        </div>
+                    </br>
+                        </div>           
+                        <div class="form-group">
+                            <input type="submit" name="submit" value="Upload" class="btn btn-block btn-danger">
+                        </div>
+                    </div> <!--/.next-form-->
+                </form>
+            </div>
+         {% comment %} </div>  {% endcomment %}
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'admin.html' %}
+You are in self detail view of faculty
+{% block content %}
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Self details</h3>
+
+          <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+              <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-default">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="height: 300px;">
+          <table class="table table-head-fixed text-nowrap">
+            <thead>
+              <tr>
+                <th>userid</th>
+        <th>First name</th>
+        <th>Middle name</th>
+        <th>Last name</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Emailid</th>
+        <th>alternate E-mail id</th>
+        <th>Contact number</th>
+        <th>Alternate contact number</th>
+        <th>Permanent address line 1</th>
+        <th>Permanent address line 2</th>
+        <th>Permanent landmark/road</th>
+        <th>Permanent pincode</th>
+        <th>Permanent city id</th>
+        <th>Corresponding address line 1</th>
+        <th>Corresponding address line 2</th>
+        <th>Corresponding landmark/road</th>
+        <th>Corresponding pincode</th>
+        <th>Corresponding city id</th>
+        <th>Usertype(1=Admin,2=Facuty,3=Student)</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ user.userid }}</td>
+                    <td>{{ user.first_name }}</td>
+                    <td>{{ user.middle_name }}</td>
+                    <td>{{ user.last_name }}</td>
+                    <td>{{ user.dob }}</td>
+                    <td>{{ user.gender }}</td>
+                    <td>{{ user.emailid }}</td>
+                    <td>{{ user.altemailid }}</td>
+                    <td>{{ user.contact }}</td>
+                    <td>{{ user.altcontact }}</td>
+                    <td>{{ user.paddressline1 }}</td>
+                    <td>{{ user.paddressline2 }}</td>
+                    <td>{{ user.plandmark }}</td>
+                    <td>{{ user.ppincode }}</td>
+                    <td>{{ user.pcityid }}</td>
+                    <td>{{ user.caddressline1 }}</td>
+                    <td>{{ user.caddressline2 }}</td>
+                    <td>{{ user.clandmark }}</td>
+                    <td>{{ user.cpincode }}</td>
+                    <td>{{ user.ccityid }}</td>
+                    <td>{{ user.usertype }}</td>                       
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+{% endblock %}

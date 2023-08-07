@@ -1,0 +1,44 @@
+{% extends 'admin.html' %}
+{% block content %}
+<div class="container mt-2 mb-4">
+    <div class="row justify-content-md-center">
+        {% comment %} <div class="col-sm-4 border border-primary shadow rounded pt-2"> {% endcomment %}
+            <div class="text-center"><font size=6><b> Delete Message</b></font></div>
+            <div class="col-sm-12"><br>
+                <form method="post" id="delete message" action ="deletemessage" onSubmit="return validation();">
+                    {% csrf_token %}
+                    
+                    <div class="card-body table-responsive p-0" style="height: 100%;">
+                        <table class="table table-head-fixed text-nowrap">
+                          <thead>
+                            <tr>
+                                <th>Select </th>
+                                <th>Message Id </th>
+                                <th>Message Subject </th>
+                                <th>Message Sending date </th>
+                                <th>Message Content </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              {% for i in msg_list %}
+                              <tr>
+                                  <td><input type="checkbox" id="{{i.smsid}}" name="checklist" value="{{i.smsid}}"></td>
+                                  <td>{{ i.smsid }}</td>
+                                  <td>{{ i.smssubject }}</td>
+                                  <td>{{ i.smsdate }}</td>
+                                  <td>{{ i.smscontent }}</td>                       
+                              </tr>
+                              {% endfor %}
+                          </tbody>
+                        </table>
+                        </br>
+                        <div class="form-group">
+                            <input type="submit" name="submit" value="Delete" class="btn btn-block    btn-danger">
+                        </div>
+                      </div>
+                </form>
+            </div>
+         {% comment %} </div>  {% endcomment %}
+    </div>
+</div>
+{% endblock %}
